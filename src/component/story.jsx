@@ -8,6 +8,8 @@ export default function Story() {
 
   const handleChange = (e) => {
     const file = e.target.files[0];
+    if (!file) return;
+
     const imgUrl = URL.createObjectURL(file);
     const id = crypto.randomUUID();
     const storyObj = { id: id, imgUrl: imgUrl };
@@ -59,3 +61,4 @@ export const Modal = ({ imgSrc, setStoryUrl }) => {
     </div>
   );
 };
+
